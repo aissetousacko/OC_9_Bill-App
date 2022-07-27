@@ -24,8 +24,10 @@ export default class NewBill {
     const email = JSON.parse(localStorage.getItem("user")).email
     formData.append('file', file)
     formData.append('email', email)
-
-    this.store
+    const fileFormat = ["image/jpg", "image/png","image/jpeg"]
+    const testFile = fileFormat.includes(file.type)
+    if(testFile) {
+      this.store
       .bills()
       .create({
         data: formData,
@@ -39,6 +41,11 @@ export default class NewBill {
         this.fileUrl = fileUrl
         this.fileName = fileName
       }).catch(error => console.error(error))
+    } else {
+      console.log("erreur : mauvais format")
+      e.target.value = ""
+      alert("Votre fichier doit être au format PNG, JPG ou JPEG")
+    }
   }
   handleSubmit = e => {
     e.preventDefault()
