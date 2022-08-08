@@ -66,7 +66,7 @@ describe("NewBill Unit Test suites", () => {
         expect(handleChangeFile).toHaveBeenCalled()
       })
 
-      test("Then I upload an image file with the wrong format", async () => {
+      test("Then I upload an file with the wrong format", async () => {
         //chemin d'accès au formulaire
         window.onNavigate(ROUTES_PATH.NewBill)
         //newBill instances
