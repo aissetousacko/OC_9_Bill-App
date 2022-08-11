@@ -42,12 +42,12 @@ export default class NewBill {
         this.fileUrl = fileUrl
         this.fileName = fileName
       }).catch(error => console.error(error))
-      return true
+      
     } else {
       //console.log("erreur : mauvais format")
       e.target.value = ""
       alert("Votre fichier doit être au format PNG, JPG ou JPEG")
-      return false
+      return
     }
   }
   handleSubmit = e => {
